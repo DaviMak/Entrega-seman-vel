@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,11 +19,12 @@ import app.service.BibliotecaService;
 
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/biblioteca")
 public class BibliotecaController {
 	
 	@Autowired
 	private BibliotecaService bibliotecaService;
+	@PostMapping("/save")
 	public ResponseEntity<String> save(@RequestBody Biblioteca biblioteca){
 		try {
 			String msg = this.bibliotecaService.Save(biblioteca);
@@ -51,7 +53,7 @@ public class BibliotecaController {
 			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
 		}
 	}
-	@GetMapping("/findById/idBiblioteca")
+	@GetMapping("/findById/{idBiblioteca}")
 	public ResponseEntity<Biblioteca>findById(@PathVariable long idBiblioteca){
 		try {
 			Biblioteca biblioteca = this.bibliotecaService.findById(idBiblioteca);

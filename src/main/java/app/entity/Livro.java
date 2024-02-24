@@ -10,32 +10,45 @@ import lombok.Setter;
 
 public class Livro {
 	private int id;
-	private String nome;
-	private String cpf;
-	private int idade;
-	
+	private String issn;
+	private String titulo;
+	private String sinopse;
+	private int ano;
+	private int nrPaginas;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getNome() {
-		return nome;
+	public String getIssn() {
+		return issn;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setIssn(String issn) {
+		this.issn = issn;
 	}
-	public String getCpf() {
-		return cpf;
+	public String getTitulo() {
+		return titulo;
 	}
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
-	public int getIdade() {
-		return idade;
+	public String getSinopse() {
+		return sinopse;
 	}
-	public void setIdade(int idade) {
-		this.idade = idade;
+	public void setSinopse(String sinopse) {
+		this.sinopse = sinopse;
+	}
+	public int getAno() {
+		return ano;
+	}
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+	public int getNrPaginas() {
+		return nrPaginas;
+	}
+	public void setNrPaginas(int nrPaginas) {
+		this.nrPaginas = nrPaginas;
 	}
 }

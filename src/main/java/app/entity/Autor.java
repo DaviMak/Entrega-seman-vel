@@ -12,7 +12,7 @@ public class Autor {
 	private int id;
 	private String nome;
 	private String cpf;
-	private String idade;
+	private int idade;
 	
 	public int getId() {
 		return id;
@@ -32,10 +32,10 @@ public class Autor {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public String getIdade() {
+	public int getIdade() {
 		return idade;
 	}
-	public void setIdade(String idade) {
+	public void setIdade(int idade) {
 		this.idade = idade;
 	}
 	

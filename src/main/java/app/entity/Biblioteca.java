@@ -9,15 +9,15 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class Biblioteca {
-	private int Id;
+	private int id;
 	private String nome;
 	private String telefone;
 	
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getNome() {
 		return nome;

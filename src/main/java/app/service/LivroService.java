@@ -13,7 +13,7 @@ public class LivroService {
 		
 		public String Save(Livro obj) {
 			lista.add(obj);
-			return obj.getNome()+ "Livro salvo com sucesso.";
+			return obj.getTitulo()+ "Livro salvo com sucesso.";
 		}
 		public List<Livro> listAll(){
 			return lista;
@@ -26,7 +26,7 @@ public class LivroService {
 						for(int i = 0; i<lista.size();i++) {
 							if(lista.get(i).getId() == id) {
 								lista.set(i, obj);
-								return obj.getNome()+ "Livro atualizado com sucesso";
+								return obj.getTitulo()+ "Livro atualizado com sucesso";
 							}
 						} 
 					}
