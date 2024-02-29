@@ -29,7 +29,7 @@ public class LivroController {
 	@PostMapping("/save")
 	public ResponseEntity<String> save(@RequestBody Livro livro){
 		try {
-			String msg = this.livroService.Save(livro);
+			String msg = this.livroService.save(livro);
 			return new ResponseEntity<String>(msg, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Aconteceu algo de errado: "+ e.getMessage(), HttpStatus.BAD_REQUEST);

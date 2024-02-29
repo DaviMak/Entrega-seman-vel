@@ -27,7 +27,7 @@ public class BibliotecaController {
 	@PostMapping("/save")
 	public ResponseEntity<String> save(@RequestBody Biblioteca biblioteca){
 		try {
-			String msg = this.bibliotecaService.Save(biblioteca);
+			String msg = this.bibliotecaService.save(biblioteca);
 			return new ResponseEntity<String>(msg, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Aconteceu algo de errado: "+ e.getMessage(), HttpStatus.BAD_REQUEST);
