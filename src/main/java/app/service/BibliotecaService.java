@@ -3,12 +3,17 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Biblioteca;
+import app.repository.BibliotecaRepository;
 
 @Service
 public class BibliotecaService {
+	
+		@Autowired
+		private BibliotecaRepository repository;
 		List<Biblioteca> lista = new ArrayList<>();
 		
 		public String Save(Biblioteca biblioteca) {

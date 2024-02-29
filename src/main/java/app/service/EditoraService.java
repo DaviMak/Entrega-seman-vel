@@ -3,12 +3,17 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Editora;
+import app.repository.EditoraRepository;
 
 @Service
 public class EditoraService {
+	
+		@Autowired
+		private EditoraRepository repository;
 		List<Editora> lista = new ArrayList<>();
 		
 		public String save(Editora obj) {

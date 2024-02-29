@@ -3,12 +3,18 @@ package app.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Autor;
+import app.repository.AutorRepository;
 
 @Service
 public class AutorService {
+	
+		@Autowired
+		private AutorRepository repository;
+		
 		List<Autor> lista = new ArrayList<>();
 		
 		public String Save(Autor obj) {
