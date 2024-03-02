@@ -1,61 +1,41 @@
 package app.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import app.entity.Autor;
+import app.repository.AutorRepository;
 
 @Service
 public class AutorService {
-		List<Autor> lista = new ArrayList<>();
+	
+		@Autowired
+		private AutorRepository repository;
 		
-		public String Save(Autor obj) {
-			lista.add(obj);
-			return obj.getNome()+ "Autor salvo com sucesso.";
+		public String save(Autor obj) {
+			this.repository.save(obj);
+			return obj.getNmAutor() + " Autor salvo com sucesso.";
 		}
+		
 		public List<Autor> listAll(){
-			return lista;
+			return this.repository.findAll();
 		}
+		
 		public String update(long id, Autor obj) {
-					
-					lista = this.listAll();
-					
-					if(lista != null) {
-						for(int i = 0; i<lista.size();i++) {
-							if(lista.get(i).getId() == id) {
-								lista.set(i, obj);
-								return obj.getNome()+ "Autor atualizado com sucesso";
-							}
-						} 
-					}
-					return "registro não encontrado";
-				}
-		public Autor findById(long idAutor) {
-			
-			lista = this.listAll();
-			
-			if(lista != null) {
-				for(int i = 0; i<lista.size(); i++) {
-					if(lista.get(i).getId() == idAutor) {
-						return lista.get(i);
-					}
-				}
-			}
-			return null;
+			obj.setIdAutor(id);
+			this.repository.save(obj);
+			return "Autor não encontrado para alterar";
 		}
-		public String delete(long idAutor) {
-			
-			lista = this.listAll();
-			String msg = "Não foi possivel excluir a lista";
-			
-			if(lista != null) {
-				for(int i = 0; i<lista.size();i++) {
-					lista.remove(lista.get(i));
-					msg = "lista excluida com sucesso";
-				}
-			}
-			return msg;
+		
+		public Autor findById(long id) {
+			Autor obj = this.repository.findById(id).get();
+			return obj;
+		}
+		
+		public String delete(long id) {
+			this.repository.deleteById(id);
+			return "Autor não encontrado para deletar";
 		}	
 	}

@@ -27,7 +27,7 @@ public class AutorController {
 	@PostMapping("/save")
 	public ResponseEntity<String> save(@RequestBody Autor autor){
 		try {
-			String msg = this.autorService.Save(autor);
+			String msg = this.autorService.save(autor);
 			return new ResponseEntity<String>(msg, HttpStatus.CREATED);
 		} catch (Exception e) {
 			return new ResponseEntity<String>("Aconteceu algo de errado: "+ e.getMessage(), HttpStatus.BAD_REQUEST);

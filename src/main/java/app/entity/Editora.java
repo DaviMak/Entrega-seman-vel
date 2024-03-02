@@ -1,34 +1,57 @@
 package app.entity;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Editora {
-	private int id;
-	private String nome;
-	private String endereco;
-	private String telefone;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idEditora;
+	@NotNull(message = "Este campo não pode ser nulo")
+	private String nmEditora;
+	private String dsEndereco;
+	private String nrTelefone;
+	@OneToMany(mappedBy = "editora")
+    private List<Livro> livros;
 	
-	public int getId() {
-		return id;
+	public long getIdEditora() {
+		return idEditora;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setIdEditora(long idEditora) {
+		this.idEditora = idEditora;
 	}
-	public String getNome() {
-		return nome;
+	public String getNmEditora() {
+		return nmEditora;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setNmEditora(String nmEditora) {
+		this.nmEditora = nmEditora;
 	}
-	public String getEndereco() {
-		return endereco;
+	public String getDsEndereco() {
+		return dsEndereco;
 	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setDsEndereco(String dsEndereco) {
+		this.dsEndereco = dsEndereco;
 	}
-	public String getTelefone() {
-		return telefone;
+	public String getNrTelefone() {
+		return nrTelefone;
 	}
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
+	public void setNrTelefone(String nrTelefone) {
+		this.nrTelefone = nrTelefone;
 	}
-	
 }

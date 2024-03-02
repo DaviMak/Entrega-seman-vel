@@ -1,0 +1,13 @@
+app\controller\AutorController.class
+app\App.class
+app\service\AutorService.class
+app\service\LivroService.class
+app\controller\BibliotecaController.class
+app\entity\Autor.class
+app\entity\Livro.class
+app\controller\LivroController.class
+app\entity\Editora.class
+app\service\BibliotecaService.class
+app\service\EditoraService.class
+app\controller\EditoraController.class
+app\entity\Biblioteca.class
